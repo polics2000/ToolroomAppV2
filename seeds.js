@@ -33,29 +33,29 @@ function seedDB(){
             }
             console.log("removed comments!");  ////////////////// REMOVED all models
              //add a few campgrounds
-            data.forEach(function(seed){
-                Campground.create(seed, function(err, campground){ // name, image, desc included campground creation 
-                    if(err){
-                        console.log(err);
-                    } else {
-                        console.log("added a campground : " + campground.name);
-                        //create a comment
-                        Comment.create(
-                            {
-                                text: "This place is great, but I wish there was internet",
-                                author: "Homer"
-                            }, function(err, comment){
-                                if(err){
-                                    console.log(err);
-                                } else { // if creation successful
-                                    campground.comments.push(comment);
-                                    campground.save();
-                                    console.log("Created new comment: " + comment);
-                                }
-                            });
-                    }
-                });
-            });
+            // data.forEach(function(seed){
+            //     Campground.create(seed, function(err, campground){ // name, image, desc included campground creation 
+            //         if(err){
+            //             console.log(err);
+            //         } else {
+            //             console.log("added a campground : " + campground.name);
+            //             //create a comment
+            //             Comment.create(
+            //                 {
+            //                     text: "This place is great, but I wish there was internet",
+            //                     author: "Homer"
+            //                 }, function(err, comment){
+            //                     if(err){
+            //                         console.log(err);
+            //                     } else { // if creation successful
+            //                         campground.comments.push(comment);
+            //                         campground.save();
+            //                         console.log("Created new comment: " + comment);
+            //                     }
+            //                 });
+            //         }
+            //     });
+            // });
         });
     }); 
     //add a few comments

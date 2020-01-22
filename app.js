@@ -17,15 +17,15 @@ var commentRoutes = require("./routes/comments");
 var campgroundRoutes = require("./routes/campgrounds");
 var indexRoutes = require("./routes/index");
 
-mongoose.connect("mongodb://localhost/toolroom");
-// mongoose.connect('mongodb+srv://toolroom:toolroom@toolroom-gbofc.mongodb.net/test?retryWrites=true&w=majority', {
-// 	useNewUrlParser: true,
-// 	useCreateIndex: true
-// }).then(() => {
-// 	console.log("Connected to DB!");
-// }).catch(err => {
-// 	console.log("Error", err.message);
-// });
+// mongoose.connect("mongodb://localhost/toolroom");
+mongoose.connect('mongodb+srv://toolroom:toolroom@toolroom-gbofc.mongodb.net/test?retryWrites=true&w=majority', {
+	useNewUrlParser: true,
+	useCreateIndex: true
+}).then(() => {
+	console.log("Connected to DB!");
+}).catch(err => {
+	console.log("Error", err.message);
+});
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));

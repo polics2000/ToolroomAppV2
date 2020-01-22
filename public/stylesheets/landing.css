@@ -14,7 +14,6 @@ body {
   z-index: 1;
   position: relative;
   text-align: center;
-  /* padding-top: 40vh; */
 }
 
 #landing-header h1 {
@@ -32,13 +31,6 @@ body {
 	width: 500px;
 	height: 200px;
 }
-/* .well {
-	position: absolute;
-	/* top: 50%; */
-	
-	
-
-/* } */
 
 .slideshow { 
   position: fixed;
@@ -75,29 +67,28 @@ body {
 }
 
 .slideshow li:nth-child(1) { 
-
   background-image: url(http://www.kleinezeitung.at/images/uploads/4/5/0/5583952/magna12_1550833891373891_v0_h.jpg) 
 }
 .slideshow li:nth-child(2) { 
   background-image: url(https://bloximages.chicago2.vip.townnews.com/theoaklandpress.com/content/tncms/assets/v3/editorial/8/44/844bc9f6-57d4-5334-8ad7-2b3b82abaeb1/5b5635b7499a7.image.jpg?resize=1200%2C800);
-  animation-delay: 10s; 
+  animation-delay: 8s; 
 }
 .slideshow li:nth-child(3) { 
   background-image: url(https://images.thestar.com/xV-9wsX8ruEtwMiIn748_00QyOE=/0x0:3754x2478/1086x717/smart/filters:cb(1573225317029)/https://www.thestar.com/content/dam/thestar/uploads/2019/11/08/cpt105436339-1--0.jpg);
-  animation-delay: 20s; 
+  animation-delay: 12s; 
 }
 .slideshow li:nth-child(4) { 
   background-image: url(https://share.ca/wp-content/uploads/2019/04/Magna.jpg);
-  animation-delay: 30s; 
+  animation-delay: 18s; 
 }
 .slideshow li:nth-child(5) { 
   background-image: url(https://www.magna.com/images/default-source/press-release-images/2018/1800x775-ces-presence-01.jpg?Status=Master&sfvrsn=c83a9bd6_2);
-  animation-delay: 40s; 
+  animation-delay: 24s; 
 }
 
 @keyframes imageAnimation { 
   0% { 
-    opacity: 0; 
+    opacity: 0.5; 
     animation-timing-function: ease-in;
   }
   10% {

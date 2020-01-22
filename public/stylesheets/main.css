@@ -18,3 +18,8 @@ h1.font-size {
     font-size: 20px;
 	margin: auto;
 }
+
+.navbar-nav {
+    margin: auto;
+    /* box-shadow: 0 0 4px black; */
+}

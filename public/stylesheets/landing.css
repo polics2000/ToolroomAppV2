@@ -26,17 +26,19 @@ body {
 #container {
 	z-index: 10;
 	position: absolute;
-	top:50%;
-	transform: translateY(-50%);
-}
-.well {
-	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform:translateX(-50%);
+	transform: translate(-50%, -50%);
 	width: 500px;
 	height: 200px;
 }
+/* .well {
+	position: absolute;
+	/* top: 50%; */
+	
+	
+
+/* } */
 
 .slideshow { 
   position: fixed;

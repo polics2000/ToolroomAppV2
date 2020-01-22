@@ -10,6 +10,7 @@ var Campground = require("./models/campground");
 var Comment = require("./models/comment");
 var User = require("./models/user");
 var seedDB = require("./seeds");
+var port = process.env.PORT || 3000;app.listen(port, function () {  console.log("Server Has Started!");});
 
 // Requiring routes
 var commentRoutes = require("./routes/comments");
@@ -62,6 +63,6 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 
 
 
-app.listen(3000, function(){
-	console.log("server is listening");
-});
+// app.listen(3000, function(){
+// 	console.log("server is listening");
+// });

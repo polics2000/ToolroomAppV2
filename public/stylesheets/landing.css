@@ -70,7 +70,7 @@ body {
   background-image: url(http://www.kleinezeitung.at/images/uploads/4/5/0/5583952/magna12_1550833891373891_v0_h.jpg) 
 }
 .slideshow li:nth-child(2) { 
-  background-image: url(https://bloximages.chicago2.vip.townnews.com/theoaklandpress.com/content/tncms/assets/v3/editorial/8/44/844bc9f6-57d4-5334-8ad7-2b3b82abaeb1/5b5635b7499a7.image.jpg?resize=1200%2C800);
+  background-image: url(https://www.magna.com/images/default-source/press-release-images/2018/1800x775-ces-presence-01.jpg?Status=Master&sfvrsn=c83a9bd6_2);
   animation-delay: 8s; 
 }
 .slideshow li:nth-child(3) { 
@@ -88,7 +88,7 @@ body {
 
 @keyframes imageAnimation { 
   0% { 
-    opacity: 0.5; 
+    opacity: 0; 
     animation-timing-function: ease-in;
   }
   10% {

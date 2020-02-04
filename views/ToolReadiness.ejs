@@ -29,13 +29,29 @@
 		h3{
 			margin-bottom: 25px;
 		}
+		
+		h4 {
+			text-indent: 125px;
+vertical-align: middle;
+			/* text-align: middle; */
+		}
 
+		div .boxbox{
+			display:inline-block;
+			width: 80px;
+			height: 25px;
+			background: yellow;
+			border-style: solid;
+			border-width: thin;
+			position: relative;
+			top: 50%;
+			transform: translateY(30%);
+		}
     </style>
 </head>
 <body>
     <container>
         <h3 style="text-align:center">Tool readiness on <span id="date">date</span></h3>
-
         <table width="80%" cellspacing="1" cellpadding="1" border="1" align="center">
             <th>Program</th>
             <th>St.1</th>
@@ -420,6 +436,7 @@
                 <td class="readiness" align="center"></td> 
             </tr>
         </table>
+		<h4>Please click station# to activate button to <div class="boxbox"></div></h4>
     
     <script language="javascript">
 
@@ -445,6 +462,7 @@
             }, {});
             document.querySelectorAll(".readiness").forEach(function(el){
                 el.textContent = programs[el.parentNode.id];
+				readiness();
             });
 
         // Onclick function
@@ -464,12 +482,14 @@
         // Update Tool Status
         function readiness() {
             document.querySelectorAll(".readiness").forEach(function(el){
-                el.textContent = programs[el.parentNode.id];
-                if(el.textContent == 0){
+                el.textContent = programs[el.parentNode.id] + " hrs";
+                if(el.textContent == 0+" hrs"){
+					el.classList.remove("service");
                     el.classList.add("ready");
                     el.textContent = "Ready"
                 } else {
                     el.classList.remove("ready");
+					el.classList.add("service");
                 }
             });
         }

@@ -22,7 +22,7 @@ var indexRoutes = require("./routes/index");
 // Local Mongoose for Test
 // mongoose.connect("mongodb://localhost/toolroom");
 
-// Mongolab Server
+// MongoDB Atlas Server
 mongoose.connect('mongodb+srv://toolroom:toolroom@toolroom-gbofc.mongodb.net/test?retryWrites=true&w=majority', {
 	useNewUrlParser: true,
 	useCreateIndex: true

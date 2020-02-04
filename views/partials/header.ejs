@@ -23,7 +23,13 @@
 				<div id="navbar" class="collapse navbar-collapse">
 				  <ul class="nav navbar-nav">
 					<li class="<%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>"><a href="/campgrounds">Home</a></li>
+					<li class="<%= typeof page !== 'undefined' && page === 'about' ? 'active' : '' %>"><a href="/about">About</a></li>
+					<li class="<%= typeof page !== 'undefined' && page === 'status' ? 'active' : '' %>"><a href="/status">Tool Status</a></li>
+					  
+					<li class="<%= typeof page !== 'undefined' && page === 'board' ? 'active' : '' %>"><a href="/board">Board</a></li>
+
 				  </ul>
+					
 				  <ul class="nav navbar-nav navbar-right">
 					  <% if(!currentUser){ %>
 						  <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"><a href="/login">Login</a></li>

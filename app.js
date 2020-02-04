@@ -6,6 +6,7 @@ var flash = require("connect-flash");
 var passport = require("passport");
 var LocalStrategy = require("passport-local");
 var methodOverride = require("method-override");
+// var Board = require("./models/board");
 var Campground = require("./models/campground");
 var Comment = require("./models/comment");
 var User = require("./models/user");
@@ -13,19 +14,20 @@ var seedDB = require("./seeds");
 var port = process.env.PORT || 3000;app.listen(port, function () {  console.log("Server Has Started!");});
 
 // Requiring routes
+var boardRoutes = require("./routes/boards");
 var commentRoutes = require("./routes/comments");
 var campgroundRoutes = require("./routes/campgrounds");
 var indexRoutes = require("./routes/index");
 
-// mongoose.connect("mongodb://localhost/toolroom");
-mongoose.connect('mongodb+srv://toolroom:toolroom@toolroom-gbofc.mongodb.net/test?retryWrites=true&w=majority', {
-	useNewUrlParser: true,
-	useCreateIndex: true
-}).then(() => {
-	console.log("Connected to DB!");
-}).catch(err => {
-	console.log("Error", err.message);
-});
+mongoose.connect("mongodb://localhost/toolroom");
+// mongoose.connect('mongodb+srv://toolroom:toolroom@toolroom-gbofc.mongodb.net/test?retryWrites=true&w=majority', {
+// 	useNewUrlParser: true,
+// 	useCreateIndex: true
+// }).then(() => {
+// 	console.log("Connected to DB!");
+// }).catch(err => {
+// 	console.log("Error", err.message);
+// });
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -57,6 +59,9 @@ app.use(function(req, res, next){
 app.use(indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
+app.use(boardRoutes);
+app.engine('html', require('ejs').renderFile);
+
 
 // Campground.create({
 // 	name:"Test",
@@ -70,7 +75,13 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 // 	}
 // });
 
+app.get("/about", function(req,res){
+	res.send("about page will be updated shortly");
+});
 
+app.get("/status", function(req,res){
+	res.render("ToolReadiness.html");
+});
 
 // app.listen(3000, function(){
 // 	console.log("server is listening");

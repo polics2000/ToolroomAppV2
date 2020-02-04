@@ -19,7 +19,10 @@ var commentRoutes = require("./routes/comments");
 var campgroundRoutes = require("./routes/campgrounds");
 var indexRoutes = require("./routes/index");
 
+// Local Mongoose for Test
 // mongoose.connect("mongodb://localhost/toolroom");
+
+// Mongolab Server
 mongoose.connect('mongodb+srv://toolroom:toolroom@toolroom-gbofc.mongodb.net/test?retryWrites=true&w=majority', {
 	useNewUrlParser: true,
 	useCreateIndex: true
@@ -28,6 +31,7 @@ mongoose.connect('mongodb+srv://toolroom:toolroom@toolroom-gbofc.mongodb.net/tes
 }).catch(err => {
 	console.log("Error", err.message);
 });
+
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));

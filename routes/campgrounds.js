@@ -33,7 +33,6 @@ router.get("/", function(req, res){
 			res.render("campgrounds/campgrounds",{campgrounds:data, page: 'campgrounds'});
 		}
 	});
-	// res.render("campgrounds", {campgrounds:campgrounds});
 });
 
 // CREATE CAMPGROUND TO PAGE ROUTE
@@ -54,23 +53,6 @@ router.post("/", middleware.isLoggedIn, upload.single('image'), function(req,res
 		res.redirect('/campgrounds/' + campground.id);
 	  });
 	});
-	// Get data from new.ejs form and add to array
-// 	var name = req.body.name;
-// 	var image = req.body.image;
-// 	var description = req.body.description;
-// 	var author = {
-// 		id: req.user._id,
-// 		username: req.user.username
-// 	}
-// 	var newCampgroud = {name: name, image: image, description:description, author:author};
-// 	Campground.create(newCampgroud, function(err, data){
-// 		if(err) {
-// 			console.log(err);
-// 		} else {
-// 			// Redirect back to main page
-// 			res.redirect("campgrounds");
-// 		}
-// 	});
 });
 
 // SHOW FORM TO CREATE NEW CAMPGROUND

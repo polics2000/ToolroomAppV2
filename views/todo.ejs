@@ -1,0 +1,19 @@
+<%- include("partials/header") %>
+
+<% data.forEach(function(todolist){ %>
+	<li>
+		<%= todolist.text %>
+	</li>
+<% }); %>
+
+
+	<form action="" method="POST">
+		<div class="form-group">
+			<input class="form-control" type="text" name="todo[text]" placeholder="list">
+		</div>
+		<div class="form-group">
+			<input class="btn btn-lg btn-primary" type="submit">
+		</div>
+	</form>
+
+<%- include("partials/footer") %>

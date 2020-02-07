@@ -21,7 +21,7 @@
 				</div>
 				<div id="navbar" class="collapse navbar-collapse">
 				  <ul class="nav navbar-nav">
-					<li class="<%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>"><a href="/campgrounds">Home</a></li>
+					<li class="<%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>"><a href="/toolroom">Home</a></li>
 					<!-- <li class="<%= typeof page !== 'undefined' && page === 'about' ? 'active' : '' %>"><a href="/about">About</a></li> -->
 					<li class="<%= typeof page !== 'undefined' && page === 'status' ? 'active' : '' %>"><a href="/status">Tool Status</a></li>
 					  
@@ -29,7 +29,7 @@
 					<li class="<%= typeof page !== 'undefined' && page === 'budget' ? 'active' : '' %>"><a href="/budgetcontrol">BudgetControl</a></li>
 					<li class="<%= typeof page !== 'undefined' && page === 'todo' ? 'active' : '' %>"><a href="/todo">TodoList</a></li>
 					<li class="<%= typeof page !== 'undefined' && page === 'colorgame' ? 'active' : '' %>"><a href="/colorgame">RGB ColorGuess</a></li>
-					<li class="<%= typeof page !== 'undefined' && page === 'colorgame' ? 'active' : '' %>"><a href="/piggame">Piggame</a></li>
+					<li class="<%= typeof page !== 'undefined' && page === 'piggame' ? 'active' : '' %>"><a href="/piggame">Piggame</a></li>
 
 				  </ul>
 					
@@ -49,12 +49,12 @@
 		<div class="container">
 			<% if(error && error.length > 0) { %>
 				<div class="alert alert-danger" role="alert">
-					<h1 class="font-size"><%= error %></h1>
+					<h1 style= margin-top:10px class="font-size"><%= error %></h1>
 				</div>
 			<% } %>
 			<% if(error && success.length > 0) { %>
 				<div class="alert alert-success" role="alert">
-					<h1 class="font-size"><%= success %></h1>
+					<h1 style= margin-top:10px class="font-size"><%= success %></h1>
 				</div>
 			<% } %>
 		</div>

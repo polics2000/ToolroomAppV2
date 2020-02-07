@@ -16,7 +16,7 @@ var port = process.env.PORT || 3000;
 // Requiring routes
 var boardRoutes = require("./routes/boards");
 var commentRoutes = require("./routes/comments");
-var campgroundRoutes = require("./routes/campgrounds");
+var toolroomRoutes = require("./routes/toolroom");
 var indexRoutes = require("./routes/index");
 var toolstatusRoutes = require("./routes/toolstatus");
 var budgetcontrolRoutes = require("./routes/budgetcontrol");
@@ -68,8 +68,8 @@ app.use(function(req, res, next){
 });
 
 // REQUIRING ROUTES
-app.use("/campgrounds", campgroundRoutes);
-app.use("/campgrounds/:id/comments", commentRoutes);
+app.use("/toolroom", toolroomRoutes);
+app.use("/toolroom/:id/comments", commentRoutes);
 app.use(indexRoutes);
 app.use(boardRoutes);
 app.use(toolstatusRoutes);

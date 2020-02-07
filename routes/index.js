@@ -23,7 +23,7 @@ router.post("/register", function(req, res){
         }
         passport.authenticate("local")(req, res, function(){
            req.flash("success", "Successfully Signed Up! Nice to meet you " + req.body.username);
-           res.redirect("/campgrounds"); 
+           res.redirect("/toolroom"); 
         });
     });
 });
@@ -36,7 +36,7 @@ router.get("/login", function(req, res){
 // HANDLE LOGIN LOGIC
 router.post("/login", passport.authenticate("local",
 	{
-		successRedirect: "/campgrounds",
+		successRedirect: "/toolroom",
 		failureRedirect: "/login"
 }), function(req, res){
 	res.send("login !");
@@ -46,7 +46,7 @@ router.post("/login", passport.authenticate("local",
 router.get("/logout", function(req, res){
 	req.logout();
 	req.flash("success", "Logged you out!");
-	res.redirect("/campgrounds");
+	res.redirect("/toolroom");
 });
 
 // MIDDLEWARE

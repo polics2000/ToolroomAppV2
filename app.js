@@ -21,6 +21,10 @@ var indexRoutes = require("./routes/index");
 var toolstatusRoutes = require("./routes/toolstatus");
 var budgetcontrolRoutes = require("./routes/budgetcontrol");
 var todoRoutes = require("./routes/todo");
+var colorgameRoutes = require("./routes/colorgame");
+var supplierRoutes = require("./routes/supplier");
+// var kakaotalkRoutes = require("./routes/kakao");
+var piggameRoutes = require("./routes/piggame");
 
 // Local Mongoose for Test
 // mongoose.connect("mongodb://localhost/toolroom");
@@ -71,19 +75,10 @@ app.use(boardRoutes);
 app.use(toolstatusRoutes);
 app.use(budgetcontrolRoutes);
 app.use(todoRoutes);
-
-
-app.get("/about", function(req,res){
-	res.send("about page will be updated shortly");
-});
-
-app.get("/colorgame", function(req, res){
-	res.render("./colorgame/colorGame.html", {page:"colorgame"});
-});
-
-app.get("/supplier", function(req, res){
-	res.render("./suppliers", {page:"supplier"});
-});
+app.use(colorgameRoutes);
+app.use(supplierRoutes);
+// app.use(kakaotalkRoutes);
+app.use(piggameRoutes);
 
 app.listen(port, function () {
 	console.log("Server Has Started!");

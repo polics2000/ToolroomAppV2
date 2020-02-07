@@ -2,16 +2,6 @@ var express = require("express");
 var router = express.Router({mergeParams: true});
 var Todo = require("../models/todo");
 
-// Todo.create({
-// 	text:"Hihihihi"
-// }, function(err, data){
-// 	if(err) {
-// 		console.log(err);
-// 	} else {
-// 		console.log(data);
-// 	}
-// });
-
 router.get("/todo", function(req, res){
 	Todo.find({}, function(err, data){
 		if(err){

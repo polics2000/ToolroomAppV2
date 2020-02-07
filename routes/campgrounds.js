@@ -2,27 +2,6 @@ var express = require("express");
 var router = express.Router();
 var Campground = require("../models/campground");
 var middleware = require("../middleware");
-var multer = require('multer');
-var storage = multer.diskStorage({
-  filename: function(req, file, callback) {
-    callback(null, Date.now() + file.originalname);
-  }
-});
-var imageFilter = function (req, file, cb) {
-    // accept image files only
-    if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
-        return cb(new Error('Only image files are allowed!'), false);
-    }
-    cb(null, true);
-};
-var upload = multer({ storage: storage, fileFilter: imageFilter})
-
-var cloudinary = require('cloudinary');
-cloudinary.config({ 
-  cloud_name: 'magna', 
-  api_key: 598488238546369, 
-  api_secret: 'YukTFd2KG9qNb7hExfe-zimbLvU'
-});
 
 // SHOW CAMPGROUND PAGE ROUTE
 router.get("/", function(req, res){
@@ -33,25 +12,27 @@ router.get("/", function(req, res){
 			res.render("campgrounds/campgrounds",{campgrounds:data, page: 'campgrounds'});
 		}
 	});
+	// res.render("campgrounds", {campgrounds:campgrounds});
 });
 
 // CREATE CAMPGROUND TO PAGE ROUTE
-router.post("/", middleware.isLoggedIn, upload.single('image'), function(req,res){
-	cloudinary.uploader.upload(req.file.path, function(result) {
-	  // add cloudinary url for the image to the campground object under image property
-	  req.body.campground.image = result.secure_url;
-	  // add author to campground
-	  req.body.campground.author = {
+router.post("/", middleware.isLoggedIn, function(req,res){
+	// Get data from new.ejs form and add to array
+	var name = req.body.name;
+	var image = req.body.image;
+	var description = req.body.description;
+	var author = {
 		id: req.user._id,
 		username: req.user.username
-	  }
-	  Campground.create(req.body.campground, function(err, campground) {
-		if (err) {
-		  req.flash('error', err.message);
-		  return res.redirect('back');
+	}
+	var newCampgroud = {name: name, image: image, description:description, author:author};
+	Campground.create(newCampgroud, function(err, data){
+		if(err) {
+			console.log(err);
+		} else {
+			// Redirect back to main page
+			res.redirect("campgrounds");
 		}
-		res.redirect('/campgrounds/' + campground.id);
-	  });
 	});
 });
 

@@ -77,6 +77,14 @@ app.get("/about", function(req,res){
 	res.send("about page will be updated shortly");
 });
 
+app.get("/colorgame", function(req, res){
+	res.render("./colorgame/colorGame.html", {page:"colorgame"});
+});
+
+app.get("/supplier", function(req, res){
+	res.render("./suppliers", {page:"supplier"});
+});
+
 app.listen(port, function () {
 	console.log("Server Has Started!");
 });
